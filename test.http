@@ -1,0 +1,4 @@
+GET https://www.eventbriteapi.com/v3/events/search/
+location.address: Paramus, NJ
+q: Bar
+Authorization: Bearer VDKBJN4WPOGWGIVHXVLJ

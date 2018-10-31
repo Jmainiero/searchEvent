@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Raleway';
+  text-align: center;
+}
+
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url(img/header7.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 500%;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -250%);
+}
+
+/* input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #00204a inset;
+} */
+
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 80%;
+  align-content: center;
+  background-color: #00204a;
+  padding: 2%;
+  color: #fff;
+}
+
+.testWrapper {
+  display: inline-block;
+  border-right: 1px solid #d9faff;
+  width: 25%;
+}
+
+input,
+select {
+  outline: none;
+  border: none;
+  background: none;
+  height: 3em;
+  width: 80%;
+  padding-right: 10px;
+  border-bottom: 1px solid #00bbf0;
+  color: #fff;
+}
+
+::-webkit-input-placeholder,
+select {
+  color: #C0C0C0;
+  border-radius: 0%;
+}
+
+select {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+}
+
+input:focus {
+  color: #fff;
+}
+
+input:active {
+  color: #fff;
+}
+
+button {
+  border: none;
+  background-color: #d9faff;
+  height: 50px;
+  width: 150px;
+  float: right;
+  border-radius: 10%;
+}
+
+button:hover {
+  background-color: #005792;
+}
+
+button:hover,
+button:focus {
+  outline: none;
+}
+
+#resultWrapper {
+  margin: 0% 25% 0 25%;
+  text-align: center;
+}
+
+.resultDetail {
+  text-align: center;
+  margin: 1%;
+  padding: 1%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.resultDetail:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.3s ease-in-out;
+  transform: scale(1.05);
+}
+
+.resultDetail a {
+  text-decoration: none;
+  color: orangered;
+  line-height: 250%;
+}
+
+.resultDetail img {
+  padding: 3%;
+  height: auto;
+  max-width: 40%;
+  display: block;
+  float: left;
+}
+
+.clearfix {
+  clear: both;
+  overflow: auto;
+}

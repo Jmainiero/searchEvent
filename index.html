@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123853522-1"></script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TJPRTS6');</script>
+  <!-- End Google Tag Manager -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123853522-1');
+</script>
+  <meta charset="utf-8">
+  <title>Search Event via EventBrite</title>
+</head>
+
+<body>
+  <header>
+
+    <!-- <h1>Event Search</h1> -->
+    <form autocomplete="none">
+      <div class="testWrapper">
+        <input type="title" name="title" placeholder="Event" id="eventName" autocomplete="off">
+      </div>
+      <div class="testWrapper">
+        <input type="location" name="location" placeholder="Location" id="location" autocomplete="off">
+      </div>
+      <div class="testWrapper">
+        <select>
+          <option class="data_range" value="this_week" selected>This Week</option>
+          <option class="data_range" value="next_week" selected>Next Week</option>
+          <option class="data_range" value="this_weekend" selected>This Weekend</option>
+          <option class="data_range" value="next_month" selected>Next Month</option>
+          <option class="data_range" value="tomorrow" selected>Tomorrow</option>
+          <option class="data_range" value="today" selected>Today</option>
+          <option selected disabled class="data_range" value="">Any Date</option>
+        </select>
+      </div>
+      <button type="submit" id="submit"><img src="css/img/search.png"></button>
+    </form>
+  </header>
+
+  <section id="searchResults">
+    <div id="resultWrapper">`
+      <!-- <div id="resultList"> -->
+
+      <!-- <div id="resultDetail">
+        </div> END Result Detail -->
+      <!-- </div> END Result List -->
+    </div>
+    <!--END Result Wrapper -->
+  </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/main.js" charset="utf-8"></script>
+  <script src="js/dateConversion.js" charset="utf-8"></script>
+  <script src="js/venue.js" charset="utf-8"></script>
+</body>
+
+</html>

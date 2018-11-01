@@ -6,12 +6,12 @@
 }
 
 body {
-  font-family: 'Raleway';
+  font-family: 'Montserrat';
   text-align: center;
 }
 
 header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url(img/header7.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url(img/header6.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: bottom;
@@ -27,9 +27,9 @@ h1 {
   transform: translate(-50%, -250%);
 }
 
-/* input:-webkit-autofill {
+input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #00204a inset;
-} */
+}
 
 form {
   position: absolute;
@@ -41,6 +41,7 @@ form {
   background-color: #00204a;
   padding: 2%;
   color: #fff;
+  border-radius: 1%;
 }
 
 .testWrapper {
@@ -61,8 +62,8 @@ select {
   color: #fff;
 }
 
-::-webkit-input-placeholder,
-select {
+::-webkit-input-placeholder {
+  opacity: 0.5;
   color: #C0C0C0;
   border-radius: 0%;
 }
@@ -82,20 +83,27 @@ input:active {
 
 button {
   border: none;
-  background-color: #d9faff;
-  height: 50px;
-  width: 150px;
+  background-color: #f09027;
+  height: 75px;
+  width: 100px;
   float: right;
-  border-radius: 10%;
+  border-radius: 15%;
 }
 
 button:hover {
-  background-color: #005792;
+  background-color: #b5592a;
 }
 
 button:hover,
 button:focus {
   outline: none;
+}
+
+form p {
+  color: lightgray;
+  font-size: 85%;
+  text-align: left;
+  padding-left: 10%;
 }
 
 #resultWrapper {

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123853522-1"></script>
 
@@ -14,8 +14,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TJPRTS6');</script>
   <!-- End Google Tag Manager -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+    function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-123853522-1');
@@ -30,12 +29,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- <h1>Event Search</h1> -->
     <form autocomplete="none">
       <div class="testWrapper">
+        <p class="form-label">Looking for</p>
         <input type="title" name="title" placeholder="Event" id="eventName" autocomplete="off">
       </div>
       <div class="testWrapper">
+        <p class="form-label">In</p>
         <input type="location" name="location" placeholder="Location" id="location" autocomplete="off">
       </div>
       <div class="testWrapper">
+        <p class="form-label">On</p>
         <select>
           <option class="data_range" value="this_week" selected>This Week</option>
           <option class="data_range" value="next_week" selected>Next Week</option>
@@ -51,7 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </header>
 
   <section id="searchResults">
-    <div id="resultWrapper">`
+    <div id="resultWrapper">
       <!-- <div id="resultList"> -->
 
       <!-- <div id="resultDetail">

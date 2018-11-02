@@ -19,6 +19,16 @@ const confirmDate = (apiDate) => {
   return (finalDate);
 }
 
+const searchFilters = () => {
+  let dateFilter = printFilters.printDate();
+  let categoryFilter = printFilters.printCategory();
+  let eventPrice = printFilters.printPaid();
+  $('#searchFilters').html(categoryFilter);
+  $('#searchFilters').append(dateFilter);
+  $('#searchFilters').append(eventPrice);
+
+}
+
 $(document).ready(function () {
   //OAuth for API Call
   const settingsEvent = {
@@ -39,34 +49,35 @@ $(document).ready(function () {
         //Parameters for API Call
         q: eventSearch,
         page: 1,
-        // price: "free",
+        // price: "paid",
         sort_by: "date",
         "start_date.keyword": checkRange(),
         "location.address": eventLocation,
         "location.within": "25mi"
       },
       function (data) { //Call back function
-        console.log(eventLocation);
+        // console.log(eventLocation);
         console.log(data.events);
         let apiResults = "<div class ='resultList'>";
         let dataEvents = data.events;
+        searchFilters();
         //Prints <div> containing API results
         for (let i = 0; i < dataEvents.length; i++) {
           confirmDate(dataEvents[i].start.local, i);
 
           // console.log("API Number: " + i + " " + data.events[i].logo);
           apiResults += "<div class='resultDetail clearfix'>"
-
-          if (data.events[i].logo != null) {
+          // console.log(dataEvents["category_id"]);
+          if (dataEvents[i].logo != null) {
             apiResults += "<img clas = 'logoImg' src= '" + dataEvents[i].logo.url + "'/>";
           }
-          apiResults += "<a href = '" + dataEvents[i].url + "'>" + dataEvents[i].name.text + "</a>" + "<p class = 'dateTime'>" + confirmDate(dataEvents[i].start.local, i) + "</p>";
+          apiResults += "<a href = '" + dataEvents[i].url + "'>" + dataEvents[i].name.text + "</a>" + "<p class = 'dateTime'>" + confirmDate(dataEvents[i].start.local, i) + "</p>" + "<p class = 'categoryID'>" + categories.getCategory(dataEvents[i]["category_id"]) + "</p>";
           apiResults += "</div>";
         }
         apiResults += "</div>";
         $('#resultWrapper').html(apiResults);
         $('html,body').animate({
-            scrollTop: $("#resultWrapper").offset().top
+            scrollTop: $("#searchResults").offset().top
           },
           500);
       }); // end Json

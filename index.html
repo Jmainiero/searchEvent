@@ -38,7 +38,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="testWrapper">
         <p class="form-label">On</p>
-        <select>
+        <select id="dateRange">
           <option class="data_range" value="this_week" selected>This Week</option>
           <option class="data_range" value="next_week" selected>Next Week</option>
           <option class="data_range" value="this_weekend" selected>This Weekend</option>
@@ -53,12 +53,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </header>
 
   <section id="searchResults">
+    <div id="searchFilters">
+    </div> <!-- END SEARCH FILTERS-->
     <div id="resultWrapper">
-      <!-- <div id="resultList"> -->
-
-      <!-- <div id="resultDetail">
-        </div> END Result Detail -->
-      <!-- </div> END Result List -->
     </div>
     <!--END Result Wrapper -->
   </section>
@@ -66,6 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="js/main.js" charset="utf-8"></script>
   <script src="js/dateConversion.js" charset="utf-8"></script>
   <script src="js/venue.js" charset="utf-8"></script>
+  <script src="js/categories.js" charset="utf-8"></script>
 </body>
 
 </html>

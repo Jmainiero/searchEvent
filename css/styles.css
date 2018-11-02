@@ -51,7 +51,7 @@ form {
 }
 
 input,
-select {
+#dateRange {
   outline: none;
   border: none;
   background: none;
@@ -141,4 +141,22 @@ form p {
 .clearfix {
   clear: both;
   overflow: auto;
+}
+
+.filterDropDown {
+  margin: 2% 2% 2% 2%;
+  outline: none;
+  border: none;
+  background: none;
+  text-align: center;
+  text-align-last: center;
+  height: 3.5em;
+  width: 12%;
+  border: 1px solid #00bbf0;
+  color: #000;
+  border-radius: 20%;
+}
+
+.filterDropDown:hover {
+  outline: none;
 }

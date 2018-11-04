@@ -20,10 +20,10 @@ const printScreen = (dataEvents) => {
       apiResults += "<img clas = 'logoImg' src= '" + dataEvents[i].logo.url + "'/>";
     }
     apiResults += "<a href = '" + dataEvents[i].url + "'>" + dataEvents[i].name.text + "</a>" + "<p class = 'dateTime'>" + confirmDate(dataEvents[i].start.local, i) + "</p>" + "<p class = 'categoryID'>" + categories.getCategory(dataEvents[i]["category_id"]) + "</p>";
+    // apiResults += "<p class = 'paidStatus'>" + dataEvents[i]["is_free"] + "</p>";
     apiResults += "</div>";
   }
   apiResults += "</div>";
-  // let apiResults = originalRequest(data.events);
 
   $('#resultWrapper').html(apiResults);
   $('html,body').animate({
@@ -33,23 +33,38 @@ const printScreen = (dataEvents) => {
 };
 
 const adjustResults = (dataEvents, filterType, filterValue) => {
-
+  const newPrint = [];
   if (filterType == 'category_id') {
-    const newPrint = [];
     for (let i = 0; i < dataEvents.length; i++) {
-      // console.log(categories.getCategory(dataEvents[i]["category_id"]));
       if (filterValue == categories.getCategory(dataEvents[i]["category_id"])) {
-        apiParameters.categories = dataEvents[i]["category_id"];
-        console.log(dataEvents[i]["category_id"]);
-        console.log(dataEvents[i]);
         newPrint.push(dataEvents[i]);
-        console.log(newPrint);
-
       }
     }
-    printScreen(newPrint);
+    for (let i = 0; i < dataEvents.length; i++) {
+      if (filterValue != categories.getCategory(dataEvents[i]["category_id"])) {
+        newPrint.push(dataEvents[i]);
+      }
+    }
   }
+  if (filterType == 'is_free') {
+    if (filterValue === "Paid") {
+      const isFree = false;
+      for (let i = 0; i < dataEvents.length; i++) {
+        if (isFree == dataEvents[i]["is_free"]) {
+          newPrint.push(dataEvents[i]);
+        }
+      }
+    } else {
+      const isFree = true;
+      for (let i = 0; i < dataEvents.length; i++) {
+        if (isFree == dataEvents[i]["is_free"]) {
+          newPrint.push(dataEvents[i]);
+        }
+      }
+    }
 
+  }
+  printScreen(newPrint);
 };
 //Determines which date range is being selected on form
 const checkRange = () => {

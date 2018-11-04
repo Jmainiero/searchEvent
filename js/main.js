@@ -22,11 +22,11 @@
   };
 
   const searchFilters = () => {
-    let dateFilter = printFilters.printDate();
+    // let dateFilter = printFilters.printDate();
     let categoryFilter = printFilters.printCategory();
     let eventPrice = printFilters.printPaid();
     $('#searchFilters').html(categoryFilter);
-    $('#searchFilters').append(dateFilter);
+    // $('#searchFilters').append(dateFilter);
     $('#searchFilters').append(eventPrice);
   };
   let eventSearch;
@@ -47,7 +47,7 @@
       $.getJSON(settingsEvent, apiParameters,
         function (data) { //Call back function
 
-          console.log(data.events);
+          console.log(data);
           printScreen(data.events)
           searchFilters();
           //The following will determine a change on the search filters and determine which fitler and value was changed
@@ -59,7 +59,7 @@
                 let filterValue = filteredItem.value;
                 adjustResults(data.events, filterType, filterValue);
                 // console.log(dataEvents[i]["category_id"]);
-                console.log(filterValue);
+                // console.log(filterValue);
                 // console.log(filterType);
               }
             }

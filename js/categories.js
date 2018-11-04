@@ -56,24 +56,24 @@ const printFilters = {
     }
     categoryDropDown += "</selected>";
     return categoryDropDown;
-  },
-  printDate: function () {
-    const dateSelect = {
-      0: "This Week",
-      1: "Next Week",
-      2: "This Weekend",
-      3: "Next Weekend",
-      4: "Next Month",
-      5: "Tomorrow",
-      6: "Today",
-      7: "Any Date"
-    };
-    let dayDropDown = "<select id ='dayFilter' class ='filterDropDown'>";
-    for (let i = 0; i < Object.keys(dateSelect).length; i++) {
-
-      dayDropDown += "<option selected>" + dateSelect[i] + "</option>";
-    }
-    dayDropDown += "</selected>";
-    return dayDropDown;
   }
+  // printDate: function () {
+  //   const dateSelect = {
+  //     0: "This Week",
+  //     1: "Next Week",
+  //     2: "This Weekend",
+  //     3: "Next Weekend",
+  //     4: "Next Month",
+  //     5: "Tomorrow",
+  //     6: "Today",
+  //     7: "Any Date"
+  //   };
+  //   let dayDropDown = "<select id ='dayFilter' class ='filterDropDown'>";
+  //   for (let i = 0; i < Object.keys(dateSelect).length; i++) {
+
+  //     dayDropDown += "<option selected>" + dateSelect[i] + "</option>";
+  //   }
+  //   dayDropDown += "</selected>";
+  //   return dayDropDown;
+  // }
 };

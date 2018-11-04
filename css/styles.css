@@ -130,10 +130,14 @@ form p {
   line-height: 250%;
 }
 
+.resultDetail p {
+  line-height: 125%;
+}
+
 .resultDetail img {
   padding: 3%;
   height: auto;
-  max-width: 40%;
+  max-width: 20%;
   display: block;
   float: left;
 }

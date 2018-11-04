@@ -8,17 +8,18 @@
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TJPRTS6');</script>
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TJPRTS6');</script>
   <!-- End Google Tag Manager -->
+  <!--- Google Analytics-->
   <script>
     function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-123853522-1');
 </script>
+  <!-- End Google Analaytics-->
   <meta charset="utf-8">
   <title>Search Event via EventBrite</title>
 </head>
@@ -26,7 +27,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
   <header>
 
-    <!-- <h1>Event Search</h1> -->
     <form autocomplete="none">
       <div class="testWrapper">
         <p class="form-label">Looking for</p>
@@ -60,10 +60,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!--END Result Wrapper -->
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/main.js" charset="utf-8"></script>
   <script src="js/dateConversion.js" charset="utf-8"></script>
   <script src="js/venue.js" charset="utf-8"></script>
   <script src="js/categories.js" charset="utf-8"></script>
+  <script src="js/filterActions.js" charset="utf-8"></script>
+  <script src="js/main.js" charset="utf-8"></script>
 </body>
 
 </html>

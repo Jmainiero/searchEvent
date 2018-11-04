@@ -1,35 +1,3 @@
-//Determines which date range is being selected on form
-const checkRange = () => {
-  let dateRange = document.getElementsByClassName("data_range");
-  for (var i = 0; i < dateRange.length; i++) {
-    if (dateRange[i].selected == true) {
-      return dateRange[i].value;
-    }
-  }
-}
-//Converts Date functins into Day of the week and readbable hour + minutes
-const confirmDate = (apiDate) => {
-  let postDate = apiDate;
-  let testDate = new Date(postDate);
-  let returnMonth = testDate.getMonth();
-  let returnHour = testDate.getHours();
-  let returnMinute = testDate.getMinutes();
-  let returnDay = testDate.getDay();
-  let finalDate = " " + weekDay[returnDay] + ", " + dateConversion[returnMonth] + " " + testDate.getDate() + ", " + dateConversion.convertTime(returnHour, returnMinute);
-  return (finalDate);
-}
-
-const searchFilters = () => {
-  let dateFilter = printFilters.printDate();
-  let categoryFilter = printFilters.printCategory();
-  let eventPrice = printFilters.printPaid();
-  $('#searchFilters').html(categoryFilter);
-  $('#searchFilters').append(dateFilter);
-  $('#searchFilters').append(eventPrice);
-
-}
-
-$(document).ready(function () {
   //OAuth for API Call
   const settingsEvent = {
     "async": true,
@@ -41,45 +9,61 @@ $(document).ready(function () {
     }
   };
 
-  $('form').submit(function (evt) {
-    evt.preventDefault();
-    let eventSearch = document.getElementById('eventName').value;
-    let eventLocation = document.getElementById('location').value;
-    $.getJSON(settingsEvent, {
-        //Parameters for API Call
-        q: eventSearch,
-        page: 1,
-        // price: "paid",
-        sort_by: "date",
-        "start_date.keyword": checkRange(),
-        "location.address": eventLocation,
-        "location.within": "25mi"
-      },
-      function (data) { //Call back function
-        // console.log(eventLocation);
-        console.log(data.events);
-        let apiResults = "<div class ='resultList'>";
-        let dataEvents = data.events;
-        searchFilters();
-        //Prints <div> containing API results
-        for (let i = 0; i < dataEvents.length; i++) {
-          confirmDate(dataEvents[i].start.local, i);
+  //Converts Date functins into Day of the week and readbable hour + minutes
+  const confirmDate = (apiDate) => {
+    let postDate = apiDate;
+    let testDate = new Date(postDate);
+    let returnMonth = testDate.getMonth();
+    let returnHour = testDate.getHours();
+    let returnMinute = testDate.getMinutes();
+    let returnDay = testDate.getDay();
+    let finalDate = " " + weekDay[returnDay] + ", " + dateConversion[returnMonth] + " " + testDate.getDate() + ", " + dateConversion.convertTime(returnHour, returnMinute);
+    return (finalDate);
+  };
 
-          // console.log("API Number: " + i + " " + data.events[i].logo);
-          apiResults += "<div class='resultDetail clearfix'>"
-          // console.log(dataEvents["category_id"]);
-          if (dataEvents[i].logo != null) {
-            apiResults += "<img clas = 'logoImg' src= '" + dataEvents[i].logo.url + "'/>";
-          }
-          apiResults += "<a href = '" + dataEvents[i].url + "'>" + dataEvents[i].name.text + "</a>" + "<p class = 'dateTime'>" + confirmDate(dataEvents[i].start.local, i) + "</p>" + "<p class = 'categoryID'>" + categories.getCategory(dataEvents[i]["category_id"]) + "</p>";
-          apiResults += "</div>";
-        }
-        apiResults += "</div>";
-        $('#resultWrapper').html(apiResults);
-        $('html,body').animate({
-            scrollTop: $("#searchResults").offset().top
-          },
-          500);
-      }); // end Json
-  }); // end ready
-}); // End Form Submit
+  const searchFilters = () => {
+    let dateFilter = printFilters.printDate();
+    let categoryFilter = printFilters.printCategory();
+    let eventPrice = printFilters.printPaid();
+    $('#searchFilters').html(categoryFilter);
+    $('#searchFilters').append(dateFilter);
+    $('#searchFilters').append(eventPrice);
+  };
+  let eventSearch;
+  let eventLocation;
+  const apiParameters = {
+    q: eventSearch,
+    // price: "paid",
+    sort_by: "date",
+    "start_date.keyword": checkRange(),
+    "location.address": eventLocation,
+    "location.within": "25mi"
+  };
+  $(document).ready(function () {
+    $('form').submit(function (evt) {
+      evt.preventDefault();
+      apiParameters.q = document.getElementById('eventName').value;
+      apiParameters["location.address"] = document.getElementById('location').value;
+      $.getJSON(settingsEvent, apiParameters,
+        function (data) { //Call back function
+
+          console.log(data.events);
+          printScreen(data.events)
+          searchFilters();
+          //The following will determine a change on the search filters and determine which fitler and value was changed
+          document.addEventListener("change", function (e) {
+            for (let i = 0; i < Object.keys(filterObject).length; i++) {
+              if (e.target && e.target.id == filterObject[i]) {
+                const filteredItem = document.getElementById(filterObject[i]);
+                let filterType = filterFor[filterObject[i]];
+                let filterValue = filteredItem.value;
+                adjustResults(data.events, filterType, filterValue);
+                // console.log(dataEvents[i]["category_id"]);
+                console.log(filterValue);
+                // console.log(filterType);
+              }
+            }
+          });
+        }); // end Json
+    }); // end ready
+  }); // End Form Submit

@@ -1,28 +1,3 @@
-$(document).ready(function () {
-  //OAuth for API Call
-  const settingsEvent = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://www.eventbriteapi.com/v3/categories/",
-    "method": "GET",
-    "headers": {
-      "Authorization": "Bearer VDKBJN4WPOGWGIVHXVLJ",
-    }
-  };
-
-  $.getJSON(settingsEvent, {
-      //Parameters for API Call
-    },
-    function (data) { //Call back function
-      console.log(data);
-      for (let i = 0; i < data.categories.length; i++) {
-        console.log(data.categories[i].id + " " + data.categories[i]["short_name"]);
-      }
-    }); // end Json
-});
-
-
-
 const categories = {
   101: 'Business',
   110: 'Food & Drink',
@@ -44,7 +19,7 @@ const categories = {
   119: 'Hobbies',
   199: 'Other',
   120: 'School',
-  121: 'Any Date',
+  121: 'Any Category',
   getCategory: function (categoryID) {
 
     if (categories[categoryID]) {
@@ -64,22 +39,22 @@ const printFilters = {
       1: "Free",
       2: 'Any Price'
     };
-    let priceDropDown = "<select class ='filterDropDown'>";
+    let priceDropDown = "<select id ='paidFilter' class ='filterDropDown'>";
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < Object.values(paidFree).length; i++) {
 
       priceDropDown += "<option selected>" + paidFree[i] + "</option>";
     }
-    priceDropDown += "</selected";
+    priceDropDown += "</selected>";
     return priceDropDown;
   },
   printCategory: function () {
-    let categoryDropDown = "<select class ='filterDropDown'>";
+    let categoryDropDown = "<select id ='categoryFilter' class ='filterDropDown'>";
     for (let i = 0; i < Object.values(categories).length - 2; i++) {
-      console.log(Object.values(categories)[i]);
+      // console.log(Object.values(categories)[i]);
       categoryDropDown += "<option selected>" + Object.values(categories)[i] + "</option>";
     }
-    categoryDropDown += "</selected";
+    categoryDropDown += "</selected>";
     return categoryDropDown;
   },
   printDate: function () {
@@ -93,12 +68,12 @@ const printFilters = {
       6: "Today",
       7: "Any Date"
     };
-    let dayDropDown = "<select class ='filterDropDown'>";
+    let dayDropDown = "<select id ='dayFilter' class ='filterDropDown'>";
     for (let i = 0; i < Object.keys(dateSelect).length; i++) {
 
       dayDropDown += "<option selected>" + dateSelect[i] + "</option>";
     }
-    dayDropDown += "</selected";
+    dayDropDown += "</selected>";
     return dayDropDown;
   }
 };

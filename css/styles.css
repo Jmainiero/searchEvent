@@ -38,7 +38,7 @@ form {
   transform: translate(-50%, 0%);
   width: 80%;
   align-content: center;
-  background-color: #00204a;
+  background-color: #882042;
   padding: 2%;
   color: #fff;
   border-radius: 1%;
@@ -58,7 +58,7 @@ input,
   height: 3em;
   width: 80%;
   padding-right: 10px;
-  border-bottom: 1px solid #00bbf0;
+  border-bottom: 1px solid #dbf1f2;
   color: #fff;
 }
 
@@ -100,7 +100,7 @@ button:focus {
 }
 
 form p {
-  color: lightgray;
+  color: #efedbb;
   font-size: 85%;
   text-align: left;
   padding-left: 10%;
@@ -152,11 +152,12 @@ form p {
   text-align-last: center;
   height: 3.5em;
   width: 12%;
-  border: 1px solid #00bbf0;
+  border: 1px solid #cd5555;
   color: #000;
   border-radius: 20%;
 }
 
 .filterDropDown:hover {
   outline: none;
+  border: 1px solid #882042;
 }

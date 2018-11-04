@@ -31,7 +31,7 @@ const dateConversion = {
     }
     return returnStatement += meridiem;
   }
-}
+};
 
 const weekDay = {
   0: "Sunday",
@@ -41,4 +41,4 @@ const weekDay = {
   4: "Thursday",
   5: "Friday",
   6: "Saturday"
-}
+};

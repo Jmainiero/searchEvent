@@ -8,9 +8,10 @@ const filterFor = {
   'categoryFilter': 'category_id',
   'paidFilter': 'is_free'
 };
-
+//Recieves API response from Main.js and prints to screen || Also rewrites screen when search filters are selected
 const printScreen = (dataEvents) => {
   let apiResults = "<div class ='resultList'>";
+
   //Prints <div> containing API results 
   for (let i = 0; i < dataEvents.length; i++) {
     confirmDate(dataEvents[i].start.local, i);
@@ -31,7 +32,7 @@ const printScreen = (dataEvents) => {
     },
     500);
 };
-
+//Determines which search filter is being selected and what the value is. Will then send finalized informatiion to printScreen() to be sent displayed
 const adjustResults = (dataEvents, filterType, filterValue) => {
   const newPrint = [];
   if (filterType == 'category_id') {
@@ -62,11 +63,11 @@ const adjustResults = (dataEvents, filterType, filterValue) => {
         }
       }
     }
-
   }
   printScreen(newPrint);
 };
-//Determines which date range is being selected on form
+
+//Determines which date range is being selected on primary form
 const checkRange = () => {
   let dateRange = document.getElementsByClassName("data_range");
   for (var i = 0; i < dateRange.length; i++) {

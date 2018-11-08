@@ -23,15 +23,13 @@ const categories = {
   getCategory: function (categoryID) {
 
     if (categories[categoryID]) {
-      // console.log(categories[categoryID]);
       return categories[categoryID];
     } else {
-      // console.log("Doesnt exist");
       return "Uncategorized";
     }
   }
 };
-
+//Creates dynamic <select> element to be printed to screen
 const printFilters = {
   printPaid: function () {
     const paidFree = {

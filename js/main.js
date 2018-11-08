@@ -20,7 +20,7 @@
     let finalDate = " " + weekDay[returnDay] + ", " + dateConversion[returnMonth] + " " + testDate.getDate() + ", " + dateConversion.convertTime(returnHour, returnMinute);
     return (finalDate);
   };
-
+  //Prints Search Filters to screen
   const searchFilters = () => {
     // let dateFilter = printFilters.printDate();
     let categoryFilter = printFilters.printCategory();
@@ -29,8 +29,11 @@
     // $('#searchFilters').append(dateFilter);
     $('#searchFilters').append(eventPrice);
   };
+
   let eventSearch;
   let eventLocation;
+
+  //API Parameters
   const apiParameters = {
     q: eventSearch,
     // price: "paid",
@@ -47,9 +50,10 @@
       $.getJSON(settingsEvent, apiParameters,
         function (data) { //Call back function
 
-          console.log(data);
+          // console.log(data);
           printScreen(data.events)
           searchFilters();
+
           //The following will determine a change on the search filters and determine which fitler and value was changed
           document.addEventListener("change", function (e) {
             for (let i = 0; i < Object.keys(filterObject).length; i++) {

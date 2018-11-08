@@ -1,3 +1,4 @@
+//The following is used to determine and format the date and time for events.
 const dateConversion = {
   0: "January",
   1: "February",

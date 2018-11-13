@@ -165,3 +165,7 @@ form p {
   outline: none;
   border: 1px solid #882042;
 }
+
+#resultsNull {
+  height: 100vh;
+}

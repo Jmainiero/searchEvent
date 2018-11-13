@@ -22,38 +22,35 @@
   };
   //Prints Search Filters to screen
   const searchFilters = () => {
-    // let dateFilter = printFilters.printDate();
     let categoryFilter = printFilters.printCategory();
     let eventPrice = printFilters.printPaid();
     $('#searchFilters').html(categoryFilter);
-    // $('#searchFilters').append(dateFilter);
     $('#searchFilters').append(eventPrice);
   };
 
-  let eventSearch;
-  let eventLocation;
-
-  //API Parameters
-  const apiParameters = {
-    q: eventSearch,
-    // price: "paid",
-    sort_by: "date",
-    "start_date.keyword": checkRange(),
-    "location.address": eventLocation,
-    "location.within": "25mi"
-  };
   $(document).ready(function () {
     $('form').submit(function (evt) {
       evt.preventDefault();
-      apiParameters.q = document.getElementById('eventName').value;
-      apiParameters["location.address"] = document.getElementById('location').value;
+
+      let eventSearch = document.getElementById('eventName').value;
+      let eventLocation = document.getElementById('location').value;
+
+      //API Parameters
+      const apiParameters = {
+        q: eventSearch,
+        // price: "paid",
+        sort_by: "date",
+        "start_date.keyword": checkRange(),
+        "location.address": eventLocation,
+        "location.within": "25mi"
+      };
       $.getJSON(settingsEvent, apiParameters,
         function (data) { //Call back function
 
-          // console.log(data);
+          console.log(data.events);
           printScreen(data.events)
           searchFilters();
-
+          // filterResults.originalData = data.events;
           //The following will determine a change on the search filters and determine which fitler and value was changed
           document.addEventListener("change", function (e) {
             for (let i = 0; i < Object.keys(filterObject).length; i++) {
@@ -62,9 +59,6 @@
                 let filterType = filterFor[filterObject[i]];
                 let filterValue = filteredItem.value;
                 adjustResults(data.events, filterType, filterValue);
-                // console.log(dataEvents[i]["category_id"]);
-                // console.log(filterValue);
-                // console.log(filterType);
               }
             }
           });

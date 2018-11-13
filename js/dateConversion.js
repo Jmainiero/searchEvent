@@ -15,14 +15,16 @@ const dateConversion = {
   convertTime: function (returnHour, returnMinute) {
     let meridiem = "am";
     let returnStatement = returnHour;
-
     if (returnHour > 12) {
       returnStatement = returnHour - 12;
       meridiem = "pm";
-    } //  else if (returnHour = 12) {
-    //   meridiem = "pm";
-    //   returnStatement = returnHour;
-    else {
+    } else if (returnHour === 0) {
+      meridiem = "am";
+      returnStatement = 12;
+    } else if (returnHour === 12) {
+      meridiem = "pm";
+      returnStatement = returnHour;
+    } else {
       meridiem = "am";
       returnStatement = returnHour;
     }

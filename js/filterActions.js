@@ -76,7 +76,7 @@ const printScreen = (dataEvents) => {
         apiResults += "<img clas = 'logoImg' src= '" + dataEvents[i].logo.url + "'/>";
       }
       apiResults += "<a href = '" + dataEvents[i].url + "'>" + dataEvents[i].name.text + "</a>" + "<p class = 'dateTime'>" + confirmDate(dataEvents[i].start.local, i) + "</p>" + "<p class = 'categoryID'>" + categories.getCategory(dataEvents[i]["category_id"]) + "</p>";
-      apiResults += "<p class = 'paidStatus'>" + dataEvents[i]["is_free"] + "</p>";
+      // apiResults += "<p class = 'paidStatus'>" + dataEvents[i]["is_free"] + "</p>";
       apiResults += "</div>";
     }
   }
